@@ -1388,6 +1388,296 @@ input:focus-visible {
   box-shadow: 0 0 12px rgba(124, 241, 229, 0.9);
 }
 
+/* Motion system: calm, tactile, and respectful of reduced-motion preferences. */
+@media (prefers-reduced-motion: no-preference) {
+  main {
+    animation: page-arrive 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .nav-surface {
+    animation: nav-arrive 680ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-shell::before {
+    animation: hero-breathe 24s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+
+  .hero-shell h1 {
+    animation: copy-arrive 760ms 100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-shell > .relative.z-10 p {
+    animation: copy-arrive 720ms 180ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-shell .glass-panel {
+    animation: panel-arrive 820ms 260ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-shell .map-pin {
+    animation: pin-arrive 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-shell .map-pin:nth-child(2) { animation-delay: 70ms; }
+  .hero-shell .map-pin:nth-child(3) { animation-delay: 120ms; }
+  .hero-shell .map-pin:nth-child(4) { animation-delay: 170ms; }
+  .hero-shell .map-pin:nth-child(5) { animation-delay: 220ms; }
+  .hero-shell .map-pin:nth-child(6) { animation-delay: 270ms; }
+
+  .map-pin-orb,
+  .time-live-dot,
+  .planner-live-pill i {
+    animation: status-pulse 3.8s ease-in-out infinite;
+  }
+
+  .hero-shell .destination-card {
+    animation: card-arrive 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-shell .destination-card:nth-child(2) { animation-delay: 60ms; }
+  .hero-shell .destination-card:nth-child(3) { animation-delay: 120ms; }
+  .hero-shell .destination-card:nth-child(4) { animation-delay: 180ms; }
+  .hero-shell .destination-card:nth-child(5) { animation-delay: 240ms; }
+  .hero-shell .destination-card:nth-child(6) { animation-delay: 300ms; }
+
+  .mascot-stage {
+    animation: mascot-float 7s ease-in-out infinite;
+  }
+
+  .speech-bubble {
+    animation: bubble-float 5s ease-in-out infinite;
+  }
+
+  .about-orbit {
+    animation: soft-float 11s ease-in-out infinite;
+  }
+
+  .about-card,
+  .contact-detail,
+  .planner-step,
+  .detail-feature,
+  .route-stop-detail {
+    animation: card-arrive 720ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .about-card:nth-child(2),
+  .contact-detail:nth-child(2),
+  .planner-step:nth-child(2),
+  .detail-feature:nth-child(2),
+  .route-stop-detail:nth-child(2) { animation-delay: 80ms; }
+
+  .about-card:nth-child(3),
+  .planner-step:nth-child(3),
+  .detail-feature:nth-child(3),
+  .route-stop-detail:nth-child(3) { animation-delay: 160ms; }
+
+  .detail-feature:nth-child(4),
+  .route-stop-detail:nth-child(4) { animation-delay: 240ms; }
+
+  .smart-filter,
+  .trip-lab-grid,
+  .time-console,
+  .trip-detail-hero,
+  .detail-copy-panel,
+  .booking-panel,
+  .planner-map-panel,
+  .planner-control-panel,
+  .planner-bottom-note {
+    animation: section-arrive 820ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .trip-card-3d::before {
+    position: absolute;
+    inset: -30%;
+    z-index: 4;
+    pointer-events: none;
+    content: "";
+    background: linear-gradient(118deg, transparent 38%, rgba(255, 255, 255, 0.11) 50%, transparent 62%);
+    transform: translateX(-75%) rotate(8deg);
+    transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .trip-card-3d:hover::before,
+  .trip-card-3d:focus-within::before {
+    transform: translateX(75%) rotate(8deg);
+  }
+
+  .trip-gallery-frame {
+    animation: gallery-breathe 12s ease-in-out infinite alternate;
+  }
+
+  .trip-detail-image,
+  .planner-map-image {
+    animation: image-breathe 18s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+
+  .booking-panel-glow {
+    animation: glow-drift 12s ease-in-out infinite alternate;
+  }
+
+  .site-footer > div {
+    animation: footer-arrive 820ms 120ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .profile-menu,
+  .mobile-nav,
+  .field-menu {
+    animation: menu-arrive 220ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    transform-origin: top right;
+  }
+
+  .primary-button,
+  .secondary-button,
+  .whatsapp-button,
+  .nav-icon-button,
+  .nav-menu-button,
+  .profile-trigger,
+  .scene-arrow,
+  .package-choice,
+  .planner-destination-choice,
+  .planner-connection-choice {
+    will-change: transform;
+  }
+
+  .primary-button:active,
+  .secondary-button:active,
+  .whatsapp-button:active,
+  .nav-icon-button:active,
+  .nav-menu-button:active,
+  .profile-trigger:active,
+  .scene-arrow:active,
+  .package-choice:active,
+  .planner-destination-choice:active,
+  .planner-connection-choice:active {
+    transform: translateY(1px) scale(0.985);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .about-card,
+    .contact-detail,
+    .smart-filter,
+    .trip-lab-grid,
+    .time-console,
+    .trip-detail-hero,
+    .detail-copy-panel,
+    .booking-panel,
+    .planner-step,
+    .planner-map-panel,
+    .planner-control-panel,
+    .planner-bottom-note,
+    .site-footer > div {
+      animation-timeline: view();
+      animation-range: entry 4% cover 28%;
+    }
+  }
+}
+
+@keyframes page-arrive {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes nav-arrive {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-breathe {
+  from { transform: scale(1.015) translate3d(0, 0, 0); }
+  to { transform: scale(1.045) translate3d(-0.5%, -0.35%, 0); }
+}
+
+@keyframes copy-arrive {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes panel-arrive {
+  from { opacity: 0; transform: translateY(18px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pin-arrive {
+  from { opacity: 0; transform: translate(-50%, 8px) scale(0.9); }
+  to { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+
+@keyframes card-arrive {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes section-arrive {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes footer-arrive {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes bubble-float {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-4px) rotate(1deg); }
+}
+
+@keyframes soft-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(0.35deg); }
+}
+
+@keyframes status-pulse {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(39, 215, 203, 0.12), 0 0 10px rgba(39, 215, 203, 0.55); }
+  50% { box-shadow: 0 0 0 5px rgba(39, 215, 203, 0.06), 0 0 16px rgba(39, 215, 203, 0.75); }
+}
+
+@keyframes gallery-breathe {
+  from { transform: translateZ(0) scale(1); }
+  to { transform: translateZ(0) scale(1.018); }
+}
+
+@keyframes image-breathe {
+  from { transform: scale(1.015); }
+  to { transform: scale(1.045); }
+}
+
+@keyframes glow-drift {
+  from { transform: translate3d(0, 0, 0) scale(0.96); opacity: 0.72; }
+  to { transform: translate3d(-18px, 16px, 0) scale(1.08); opacity: 1; }
+}
+
+@keyframes menu-arrive {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .trip-card-3d {
+    transform: none !important;
+  }
+}
+
 .planner-steps {
   border-block: 1px solid rgba(255, 255, 255, 0.1);
   padding-block: 0.75rem;
@@ -1732,4 +2022,22 @@ input:focus-visible {
 
 @media (min-width: 1024px) {
   .smart-traveler-label { display: none; }
+}
+
+/* Keep the accessibility override last so later component rules cannot re-enable motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    animation-timeline: auto !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+
+  .trip-card-3d,
+  .trip-detail-image,
+  .planner-map-image {
+    transform: none !important;
+  }
 }
